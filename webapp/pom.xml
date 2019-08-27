@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <parent>
+        <groupId>kz.iteg.egov.pep</groupId>
+        <artifactId>egov-pep-app-p2-17</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <packaging>war</packaging>
+    <groupId>kz.ivc.iteg.p2.17</groupId>
+    <artifactId>webapp</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <app.service.code>P2.17</app.service.code>
+        <app.war.name>${app.service.code}</app.war.name>
+        <jboss.deploy.skip>false</jboss.deploy.skip>
+    </properties>
+
+
+    <dependencies>
+
+
+        <dependency>
+            <groupId>kz.itig.egov.pep</groupId>
+            <artifactId>egov-pep-service-min-of-jutice-apostil-web</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxrs</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>kz.inessoft.egov.pep</groupId>
+            <artifactId>egov-pep-app-web</artifactId>
+        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>kz.inessoft.egov.pep</groupId>-->
+<!--            <artifactId>egov-pep-service-mobile-sign-impl</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>kz.inessoft.egov.pep</groupId>-->
+<!--            <artifactId>egov-pep-service-mobile-db-web</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>kz.inessoft.egov.pep</groupId>-->
+<!--            <artifactId>egov-pep-service-mobile-otp-web</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>kz.inessoft.egov.pep</groupId>-->
+<!--            <artifactId>egov-pep-app-sms</artifactId>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>kz.inessoft.egov.pep</groupId>-->
+<!--            <artifactId>egov-pep-app-nobpm</artifactId>-->
+<!--            <version>1.0.6</version>-->
+<!--        </dependency>-->
+    </dependencies>
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>2.6</version>
+                <configuration>
+                    <warName>${app.war.name}</warName>
+<!--                    <warSourceExcludes>-->
+<!--                        node_modules/**,node/**-->
+<!--                    </warSourceExcludes>-->
+<!--                    <packagingExcludes>-->
+<!--                        node_modules/**,app/**,node/**,gulpfile.js,package.json,bower.json,.bowerrc-->
+<!--                    </packagingExcludes>-->
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.jboss.as.plugins</groupId>
+                <artifactId>jboss-as-maven-plugin</artifactId>
+                <configuration>
+                    <filename>${app.war.name}.${project.packaging}</filename>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    
+</project>
